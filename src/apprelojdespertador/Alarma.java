@@ -4,7 +4,7 @@ package apprelojdespertador;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Atributos, Getters, Setters, Método que pide la hora.
  * @author David
  */
 public class Alarma {
@@ -48,7 +48,9 @@ public class Alarma {
         Alarma.hmsS = hmsS;
     }
 
-    //Pedimos la alarma
+    /**
+     * Se pide introducir la hora en la que quiere que suene la alarma.
+     */
     public static void hmsS() {
         horas=Integer.parseInt(JOptionPane.showInputDialog("Introduzca las horas: "));
         minutos=Integer.parseInt(JOptionPane.showInputDialog("Introduzca los minutos: "));
@@ -56,6 +58,9 @@ public class Alarma {
         hmsS=horas+":"+minutos+":"+segundos;
     }
     
+    /**
+     * Retorna la hora introducida en el metodo hmsS().
+    */
     public String getHmss() {
         return hmsS;
     }
