@@ -11,11 +11,15 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
- *
+ * Muestra el entorno gráfico del "reloj".
  * @author David
  */
 public class Display extends JFrame implements ActionListener{
     
+    /**
+     * Creación de los botones. 
+     * Creación del campo de texto donde se mostrará la hora.
+     */
     Despertador obxD=new Despertador();
     public JButton btnOnOff=new JButton("ON/OFF");
     public JButton btnSalir=new JButton("SALIR");
@@ -25,29 +29,39 @@ public class Display extends JFrame implements ActionListener{
     public JPanel jPanel=new JPanel();
     
     public Display(){
-        //Ventana JFrame.
+        /**
+         * Venta JFrame, ancho y largo de la ventana.
+         */
         super("ALARMA");
         this.setSize(397, 242);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Gestiona los eventos:
+        /**
+         * Gestiona los eventos de los botones.
+         */
         this.btnOnOff.addActionListener(this);
         this.btnSalir.addActionListener(this);
         this.btnSalir.addActionListener(this);
         this.btnAlarma.addActionListener(this);
 
-        //Distribuidor de objetos al jPanel:
+        /**
+         * Distribuye los objetos al jPanel.
+         */
         FlowLayout DISTRIBUIDOR = new FlowLayout(FlowLayout.LEFT, 30, 30);
         this.jPanel.setLayout(DISTRIBUIDOR);
         
-        //Agregamos los objetos a la ventana.
+        /**
+         * Incorporamos los objetos a la ventana.
+         */
         this.jPanel.add(this.textoHora);
         this.jPanel.add(this.btnOnOff);
         this.jPanel.add(this.lblHoras);
         this.jPanel.add(this.btnAlarma);
         this.jPanel.add(this.btnSalir);
 
-        //Distribución de los objetos en el jPanel.
+        /**
+         * Distribución de los objetos en el jPanel.
+         */
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,15 +90,17 @@ public class Display extends JFrame implements ActionListener{
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         this.add(this.jPanel);
-
     }
     
+    /**
+     * Asignación de acciones a los botones.
+     */
     boolean apagado=false;
     @Override
     public void actionPerformed(ActionEvent ae){
         //Con "getSource()" VEMOS EN QUE BOTON SE HIZO CLICK
         if(ae.getSource()==this.btnOnOff){
-            //Condicion un boton on/off
+            //Condición de un boton on/off
             if(apagado==false){
                 apagado=true;
             }else{
@@ -97,5 +113,4 @@ public class Display extends JFrame implements ActionListener{
         }
     }
 
-    
 }
